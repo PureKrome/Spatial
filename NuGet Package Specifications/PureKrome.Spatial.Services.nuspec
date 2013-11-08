@@ -23,5 +23,6 @@
     </metadata>
     <files>
         <file src="..\Code\Spatial.Services\bin\Release\Spatial.Services.dll" target="lib\net40\Spatial.Services.dll" />
+        <file src="ReadMe.txt" target="ReadMe.txt" />
     </files>
 </package>
