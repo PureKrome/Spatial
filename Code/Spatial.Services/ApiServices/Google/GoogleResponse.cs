@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Spatial.Core.Models;
 
 namespace Spatial.Services.ApiServices.Google
 {
@@ -59,19 +60,48 @@ namespace Spatial.Services.ApiServices.Google
         public Viewport Viewport { get; set; }
     }
 
-    public class Result
+    public class Result : ICoordinateCovertable
     {
         public List<AddressComponent> Addresscomponents { get; set; }
         public string FormattedAddress { get; set; }
         public Geometry Geometry { get; set; }
         public bool PartialMatch { get; set; }
         public List<string> Types { get; set; }
+
+        public Coordinate ToCoordinate
+        {
+            get
+            {
+                return Geometry != null &&
+                       Geometry.Location != null
+                    ? new Coordinate
+                    {
+                        Latitude = (decimal) Geometry.Location.Lat,
+                        Longitude = (decimal) Geometry.Location.Lng
+                    }
+                    : null;
+            }
+        }
     }
 
-    public class GoogleResponse
+    public class GoogleResponse : ICoordinateCovertable
     {
         public List<Result> Results { get; set; }
         public string Status { get; set; }
         public string ErrorMessage { get; set; }
+
+        /// <summary>
+        ///     NOTE: This will only be the first Result.
+        /// </summary>
+        public Coordinate ToCoordinate
+        {
+            get
+            {
+                return Results != null &&
+                       Results.Count > 0
+                    ? Results[0].ToCoordinate
+                    : null;
+            }
+        }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Spatial.Core.Models;
 
 namespace Spatial.Services.ApiServices.Nominatum
 {
-    public class NominatimResponse
+    public class NominatimResponse : ICoordinateCovertable
     {
         public string PlaceId { get; set; }
         public string Licence { get; set; }
@@ -15,5 +16,36 @@ namespace Spatial.Services.ApiServices.Nominatum
         //public string class { get; set; }
         public string Type { get; set; }
         public double Importance { get; set; }
+
+        public Coordinate ToCoordinate
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(Lat) ||
+                    string.IsNullOrWhiteSpace(Lon))
+                {
+                    return null;
+                }
+
+                decimal latitude;
+                decimal longitude;
+
+                if (!decimal.TryParse(Lat, out latitude))
+                {
+                    return null;
+                }
+
+                if (!decimal.TryParse(Lon, out longitude))
+                {
+                    return null;
+                }
+
+                return new Coordinate
+                {
+                    Latitude = latitude,
+                    Longitude = longitude
+                };
+            }
+        }
     }
 }
