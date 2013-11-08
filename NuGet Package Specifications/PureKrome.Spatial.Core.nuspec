@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>PureKrome.Spatial.Core</id>
+        <version>0.0.1</version>
+        <title>Spatial.Core : core Spatial library.</title>
+        <authors>Justin Adler</authors>
+        <owners>Justin Adler</owners>
+        <licenseUrl>https://raw.github.com/PureKrome/Spatial/master/License.txt</licenseUrl>
+        <projectUrl>https://github.com/PureKrome/Spatial</projectUrl>
+        <iconUrl>http://i.imgur.com/bR4Yf.jpg</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A few core spatial classes and interfaces. 
+
+This is a Portable Class Library (aka PCL) for :
+  o) .NET 4.0+
+  o) Silverlight 5+
+  o) Windows Phone 8+
+  o) Windows Store 8+</description>
+        <summary>Core Spatial classes and interfaces.</summary>
+        <copyright>2013</copyright>
+        <language>en-AU</language>
+        <tags>spatial geospatial geocode geocoding nominatum google googlemapsapi  worlddomination worldomination unicorn magicalunicorn magical-unicorn</tags>
+    </metadata>
+    <files>
+        <file src="..\Code\Spatial.Core\bin\Release\Spatial.Core.dll" target="lib\portable-net4+sl5+wp8+win8\Spatial.Core.dll" />
+    </files>
+</package>
