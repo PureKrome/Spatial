@@ -3,9 +3,9 @@ using RestSharp;
 using Shouldly;
 using Spatial.Core.Services;
 
-namespace Spatial.Services.ApiServices.Google
+namespace Spatial.Services.ApiServices.GoogleMaps
 {
-    public class GoogleApiService : IApiService
+    public class GoogleMapsApiService : IApiService
     {
         private const string BaseUrl = "http://maps.googleapis.com";
 
@@ -21,7 +21,7 @@ namespace Spatial.Services.ApiServices.Google
             request.AddParameter("address", query);
             request.AddParameter("sensor", "false");
 
-            IRestResponse<GoogleResponse> response = client.Execute<GoogleResponse>(request);
+            IRestResponse<GoogleMapsResponse> response = client.Execute<GoogleMapsResponse>(request);
 
             return response.Data != null &&
                    response.Data.Results != null &&

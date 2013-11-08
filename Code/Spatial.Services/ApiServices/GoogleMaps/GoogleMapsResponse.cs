@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Spatial.Core.Models;
 
-namespace Spatial.Services.ApiServices.Google
-{
+namespace Spatial.Services.ApiServices.GoogleMaps
+    {
     public class AddressComponent
     {
         public string LongName { get; set; }
@@ -84,7 +84,7 @@ namespace Spatial.Services.ApiServices.Google
         }
     }
 
-    public class GoogleResponse : ICoordinateCovertable
+    public class GoogleMapsResponse : ICoordinateCovertable
     {
         public List<Result> Results { get; set; }
         public string Status { get; set; }

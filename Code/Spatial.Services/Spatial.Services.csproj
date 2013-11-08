@@ -43,8 +43,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiServices\Google\GoogleApiService.cs" />
-    <Compile Include="ApiServices\Google\GoogleResponse.cs" />
+    <Compile Include="ApiServices\GoogleMaps\GoogleMapsApiService.cs" />
+    <Compile Include="ApiServices\GoogleMaps\GoogleMapsResponse.cs" />
     <Compile Include="Geocode\GeocodeService.cs" />
     <Compile Include="ApiServices\Nominatum\NominatimApiService.cs" />
     <Compile Include="ApiServices\Nominatum\NominatimResponse.cs" />

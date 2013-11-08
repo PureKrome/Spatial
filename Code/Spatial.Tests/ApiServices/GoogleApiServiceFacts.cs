@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Shouldly;
-using Spatial.Services.ApiServices.Google;
-using Spatial.Services.ApiServices.Nominatum;
+using Spatial.Services.ApiServices.GoogleMaps;
 using Xunit;
 
 namespace Spatial.Tests.ApiServices
@@ -16,10 +14,11 @@ namespace Spatial.Tests.ApiServices
             public void GivenAValidQuery_Geocode_ReturnsSomeData()
             {
                 // Arrange.
-                var service = new GoogleApiService();
+                var service = new GoogleMapsApiService();
 
                 // Act.
-                var result = service.Geocode("395 upper heidelberg road, ivanhoe, victoria, australia") as GoogleResponse;
+                var result =
+                    service.Geocode("395 upper heidelberg road, ivanhoe, victoria, australia") as GoogleMapsResponse;
 
                 // Assert.
                 result.ShouldNotBe(null);
@@ -38,10 +37,10 @@ namespace Spatial.Tests.ApiServices
             public void GivenAnInValidQuery_Geocode_ReturnsANull()
             {
                 // Arrange.
-                var service = new GoogleApiService();
+                var service = new GoogleMapsApiService();
 
                 // Act.
-                var result = service.Geocode("sdfhgjshf ashdf ashdfj asd gfajskdg") as GoogleResponse;
+                var result = service.Geocode("sdfhgjshf ashdf ashdfj asd gfajskdg") as GoogleMapsResponse;
 
                 // Assert.
                 result.ShouldBe(null);

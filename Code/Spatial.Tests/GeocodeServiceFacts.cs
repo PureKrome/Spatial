@@ -3,7 +3,7 @@ using FakeItEasy;
 using Shouldly;
 using Spatial.Core.Models;
 using Spatial.Core.Services;
-using Spatial.Services.ApiServices.Google;
+using Spatial.Services.ApiServices.GoogleMaps;
 using Spatial.Services.ApiServices.Nominatum;
 using Spatial.Services.Geocode;
 using Xunit;
@@ -37,7 +37,7 @@ namespace Spatial.Tests
                 var geocodeService = new GeocodeService(apiServices);
 
                 // Act.
-                Coordinate coordinate = geocodeService.Geocode("blah");
+                var coordinate = geocodeService.Geocode("blah");
 
                 // Assert.
                 coordinate.ShouldNotBe(null);
@@ -57,8 +57,8 @@ namespace Spatial.Tests
                     .Returns(null);
 
                 var fakeGoogleApiService = A.Fake<IApiService>();
-                A.CallTo( () => fakeGoogleApiService.Geocode(A<string>.Ignored))
-                    .Returns(new GoogleResponse
+                A.CallTo(() => fakeGoogleApiService.Geocode(A<string>.Ignored))
+                    .Returns(new GoogleMapsResponse
                     {
                         Results = new List<Result>
                         {

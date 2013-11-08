@@ -2,12 +2,22 @@
 using Shouldly;
 using Spatial.Core.Models;
 using Spatial.Core.Services;
+using Spatial.Services.ApiServices.GoogleMaps;
+using Spatial.Services.ApiServices.Nominatum;
 
 namespace Spatial.Services.Geocode
 {
     public class GeocodeService : IGeocodeService
     {
         private readonly IList<IApiService> _apiServices;
+
+        public GeocodeService() : this(new List<IApiService>
+        {
+            new NominatimApiService(),
+            new GoogleMapsApiService()
+        })
+        {
+        }
 
         public GeocodeService(IList<IApiService> apiServices)
         {
