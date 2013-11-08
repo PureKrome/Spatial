@@ -43,6 +43,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiServices\Google\GoogleaPIService.cs" />
+    <Compile Include="ApiServices\Google\GoogleResponse.cs" />
     <Compile Include="Geocode\GeocodeService.cs" />
     <Compile Include="ApiServices\Nominatum\NominatimApiService.cs" />
     <Compile Include="ApiServices\Nominatum\NominatimResponse.cs" />
@@ -57,9 +59,7 @@
       <Name>Spatial.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ApiServices\Google\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

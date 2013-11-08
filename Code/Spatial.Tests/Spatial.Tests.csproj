@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiServices\GoogleApiServiceFacts.cs" />
     <Compile Include="ApiServices\NominatumApiServiceFacts.cs" />
     <Compile Include="GeocodeServiceFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

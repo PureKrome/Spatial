@@ -1,77 +1,77 @@
 ﻿using System.Collections.Generic;
 
-namespace AppianMedia.XWing.Services.LatLongShit.Google
+namespace Spatial.Services.ApiServices.Google
 {
     public class AddressComponent
     {
-        public string long_name { get; set; }
-        public string short_name { get; set; }
-        public List<string> types { get; set; }
+        public string LongName { get; set; }
+        public string ShortName { get; set; }
+        public List<string> Types { get; set; }
     }
 
     public class Northeast
     {
-        public double lat { get; set; }
-        public double lng { get; set; }
+        public double Lat { get; set; }
+        public double Lng { get; set; }
     }
 
     public class Southwest
     {
-        public double lat { get; set; }
-        public double lng { get; set; }
+        public double Lat { get; set; }
+        public double Lng { get; set; }
     }
 
     public class Bounds
     {
-        public Northeast northeast { get; set; }
-        public Southwest southwest { get; set; }
+        public Northeast Northeast { get; set; }
+        public Southwest Southwest { get; set; }
     }
 
     public class Location
     {
-        public double lat { get; set; }
-        public double lng { get; set; }
+        public double Lat { get; set; }
+        public double Lng { get; set; }
     }
 
     public class Northeast2
     {
-        public double lat { get; set; }
-        public double lng { get; set; }
+        public double Lat { get; set; }
+        public double Lng { get; set; }
     }
 
     public class Southwest2
     {
-        public double lat { get; set; }
-        public double lng { get; set; }
+        public double Lat { get; set; }
+        public double Lng { get; set; }
     }
 
     public class Viewport
     {
-        public Northeast2 northeast { get; set; }
-        public Southwest2 southwest { get; set; }
+        public Northeast2 Northeast { get; set; }
+        public Southwest2 Southwest { get; set; }
     }
 
     public class Geometry
     {
-        public Bounds bounds { get; set; }
-        public Location location { get; set; }
-        public string location_type { get; set; }
-        public Viewport viewport { get; set; }
+        public Bounds Bounds { get; set; }
+        public Location Location { get; set; }
+        public string LocationType { get; set; }
+        public Viewport Viewport { get; set; }
     }
 
     public class Result
     {
-        public List<AddressComponent> address_components { get; set; }
-        public string formatted_address { get; set; }
-        public Geometry geometry { get; set; }
-        public bool partial_match { get; set; }
-        public List<string> types { get; set; }
+        public List<AddressComponent> Addresscomponents { get; set; }
+        public string FormattedAddress { get; set; }
+        public Geometry Geometry { get; set; }
+        public bool PartialMatch { get; set; }
+        public List<string> Types { get; set; }
     }
 
     public class GoogleResponse
     {
-        public List<Result> results { get; set; }
-        public string status { get; set; }
-        public string error_message { get; set; }
+        public List<Result> Results { get; set; }
+        public string Status { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }
