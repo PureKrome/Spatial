@@ -4,6 +4,8 @@ This library contains various spatial utilities to help any .NET application.
 
 ![](http://i.imgur.com/FGnyWDH.png)
 
+![](https://ci.appveyor.com/api/projects/status/4klu6n9qeso35s3g)
+
 ##Api Services
 ###NominatumApiService
 Returns some basic geospatial information from the [Nominatum web service](http://wiki.openstreetmap.org/wiki/Nominatim).
