@@ -62,7 +62,7 @@ namespace Spatial.Services.ApiServices.GoogleMaps
 
     public class Result : ICoordinateCovertable
     {
-        public List<AddressComponent> Addresscomponents { get; set; }
+        public List<AddressComponent> AddressComponents { get; set; }
         public string FormattedAddress { get; set; }
         public Geometry Geometry { get; set; }
         public bool PartialMatch { get; set; }
