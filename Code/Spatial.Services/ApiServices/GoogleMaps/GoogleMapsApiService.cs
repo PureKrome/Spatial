@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using HttpClient.Helpers;
@@ -30,8 +31,12 @@ namespace Spatial.Services.ApiServices.GoogleMaps
                 }
             }
 
-            var httpClient = HttpClientFactory.GetHttpClient();
-            var response = await httpClient.GetAsync(requestUrl.ToString());
+            HttpResponseMessage response = null;
+            using (var httpClient = HttpClientFactory.GetHttpClient())
+            {
+                response = await httpClient.GetAsync(requestUrl.ToString());
+            }
+
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
