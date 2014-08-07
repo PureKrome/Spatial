@@ -7,8 +7,8 @@
     <ProjectGuid>{E20AD303-D899-4EA9-A376-86638A2C536E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PureKrome.Spatial.Services</RootNamespace>
-    <AssemblyName>PureKrome.Spatial.Services</AssemblyName>
+    <RootNamespace>WorldDomination.Spatial</RootNamespace>
+    <AssemblyName>WorldDomination.Spatial</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>

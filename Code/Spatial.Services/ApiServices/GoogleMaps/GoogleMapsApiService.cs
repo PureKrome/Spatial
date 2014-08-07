@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using HttpClient.Helpers;
 using Newtonsoft.Json;
 
-namespace Spatial.Services.ApiServices.GoogleMaps
+namespace WorldDomination.Spatial.Services.ApiServices.GoogleMaps
 {
     public class GoogleMapsApiService : IGoogleMapsApiService
     {

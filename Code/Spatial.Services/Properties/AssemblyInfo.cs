@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Google and Nominatum spatial services.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("World-Domination Pty. Ltd.")]
-[assembly: AssemblyProduct("Spatial.Core")]
+[assembly: AssemblyProduct("WorldDomination.Spatial")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

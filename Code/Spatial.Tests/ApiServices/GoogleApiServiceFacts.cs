@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HttpClient.Helpers;
 using Shouldly;
-using Spatial.Services.ApiServices.GoogleMaps;
+using WorldDomination.Spatial.Services.ApiServices.GoogleMaps;
 using Xunit;
 
 namespace Spatial.Tests.ApiServices

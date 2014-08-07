@@ -1,4 +1,4 @@
-﻿namespace Spatial.Services
+﻿namespace WorldDomination.Spatial.Services
 {
     public class Coordinate
     {

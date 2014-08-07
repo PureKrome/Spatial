@@ -1,4 +1,4 @@
-﻿namespace Spatial.Services.ApiServices.GoogleMaps
+﻿namespace WorldDomination.Spatial.Services.ApiServices.GoogleMaps
 {
     public class ComponentFilters
     {

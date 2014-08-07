@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Spatial.Services.ApiServices.GoogleMaps
+namespace WorldDomination.Spatial.Services.ApiServices.GoogleMaps
 {
     public interface IGoogleMapsApiService
     {

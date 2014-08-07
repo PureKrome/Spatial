@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HttpClient.Helpers;
 using Shouldly;
-using Spatial.Services.ApiServices.Nominatum;
+using WorldDomination.Spatial.Services.ApiServices.Nominatum;
 using Xunit;
 
 namespace Spatial.Tests.ApiServices

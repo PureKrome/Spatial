@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Spatial.Services.ApiServices.Nominatum
+namespace WorldDomination.Spatial.Services.ApiServices.Nominatum
 {
     public class NominatimResponse : ICoordinateCovertable
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Spatial.Services.ApiServices.GoogleMaps
+namespace WorldDomination.Spatial.Services.ApiServices.GoogleMaps
 {
     public class AddressComponent
     {

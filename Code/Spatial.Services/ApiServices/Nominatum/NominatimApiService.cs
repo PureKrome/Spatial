@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using HttpClient.Helpers;
 using Newtonsoft.Json;
 
-namespace Spatial.Services.ApiServices.Nominatum
+namespace WorldDomination.Spatial.Services.ApiServices.Nominatum
 {
     public class NominatimApiService
     {
