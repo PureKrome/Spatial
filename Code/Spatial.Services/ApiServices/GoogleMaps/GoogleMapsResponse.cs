@@ -1,12 +1,16 @@
 ﻿using System.Collections.Generic;
-using Spatial.Core.Models;
+using Newtonsoft.Json;
 
 namespace Spatial.Services.ApiServices.GoogleMaps
-    {
+{
     public class AddressComponent
     {
+        [JsonProperty("long_name")]
         public string LongName { get; set; }
+
+        [JsonProperty("short_name")]
         public string ShortName { get; set; }
+
         public List<string> Types { get; set; }
     }
 
@@ -56,16 +60,26 @@ namespace Spatial.Services.ApiServices.GoogleMaps
     {
         public Bounds Bounds { get; set; }
         public Location Location { get; set; }
+
+        [JsonProperty("location_type")]
         public string LocationType { get; set; }
+
         public Viewport Viewport { get; set; }
     }
 
     public class Result : ICoordinateCovertable
     {
+        [JsonProperty("address_components")]
         public List<AddressComponent> AddressComponents { get; set; }
+
+        [JsonProperty("formatted_address")]
         public string FormattedAddress { get; set; }
+
         public Geometry Geometry { get; set; }
+
+        [JsonProperty("partial_match")]
         public bool PartialMatch { get; set; }
+
         public List<string> Types { get; set; }
 
         public Coordinate ToCoordinate
@@ -88,6 +102,8 @@ namespace Spatial.Services.ApiServices.GoogleMaps
     {
         public List<Result> Results { get; set; }
         public string Status { get; set; }
+
+        [JsonProperty("error_message")]
         public string ErrorMessage { get; set; }
 
         /// <summary>

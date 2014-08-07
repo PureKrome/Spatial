@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spatial.Core", "Code\Spatial.Core\Spatial.Core.csproj", "{7303526B-40AD-47BF-9F5F-9C0DE11F5D20}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spatial.Services", "Code\Spatial.Services\Spatial.Services.csproj", "{E20AD303-D899-4EA9-A376-86638A2C536E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spatial.Tests", "Code\Spatial.Tests\Spatial.Tests.csproj", "{85B7E1EA-BBE3-45B2-A2B1-CA3743224349}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7303526B-40AD-47BF-9F5F-9C0DE11F5D20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7303526B-40AD-47BF-9F5F-9C0DE11F5D20}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7303526B-40AD-47BF-9F5F-9C0DE11F5D20}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7303526B-40AD-47BF-9F5F-9C0DE11F5D20}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E20AD303-D899-4EA9-A376-86638A2C536E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E20AD303-D899-4EA9-A376-86638A2C536E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E20AD303-D899-4EA9-A376-86638A2C536E}.Release|Any CPU.ActiveCfg = Release|Any CPU

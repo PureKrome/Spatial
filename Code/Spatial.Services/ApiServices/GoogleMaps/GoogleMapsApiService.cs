@@ -1,57 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
-using RestSharp;
-using Shouldly;
-using Spatial.Core.Services;
+using System.Threading.Tasks;
+using HttpClient.Helpers;
+using Newtonsoft.Json;
 
 namespace Spatial.Services.ApiServices.GoogleMaps
 {
-    public class GoogleMapsApiService : IApiService
+    public class GoogleMapsApiService : IGoogleMapsApiService
     {
-        private const string BaseUrl = "http://maps.googleapis.com";
-
-        public IRestClient RestClient { get; set; }
-
-        public object Geocode(string query)
+        public async Task<GoogleMapsResponse> GeocodeAsync(string query, ComponentFilters filters = null)
         {
-            return Geocode(query, null);
-        }
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                throw new ArgumentNullException("query");
+            }
 
-        public object Geocode(string query, ComponentFilters filters)
-        {
-            string.IsNullOrWhiteSpace(query).ShouldBe(false);
-
-            var client = new RestClient(BaseUrl);
-            var request = new RestRequest("maps/api/geocode/json", Method.GET);
-
-            request.AddParameter("address", query);
-            request.AddParameter("sensor", "false");
+            var requestUrl = new StringBuilder();
+            requestUrl.AppendFormat("http://maps.googleapis.com/maps/api/geocode/json?address={0}&sensor=false",
+                Uri.EscapeDataString(query));
 
             if (filters != null)
             {
                 var components = ConvertCompenentFiltersToQuerystringParameter(filters);
                 if (!string.IsNullOrWhiteSpace(components))
                 {
-                    request.AddParameter("components", components);
+                    requestUrl.AppendFormat("&components={0}", components);
                 }
             }
 
-            IRestResponse<GoogleMapsResponse> response = client.Execute<GoogleMapsResponse>(request);
+            var httpClient = HttpClientFactory.GetHttpClient();
+            var response = await httpClient.GetAsync(requestUrl.ToString());
+            var content = await response.Content.ReadAsStringAsync();
 
-            return response.Data != null &&
-                   response.Data.Results != null &&
-                   response.Data.Results.Any()
-                ? response.Data
-                : null;
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage =
+                    string.Format("Failed to retrieve a Google Maps GeoCode result. Status Code: {0}. Message: {1}",
+                        response.StatusCode,
+                        content);
+                throw new Exception(errorMessage);
+            }
+
+            return JsonConvert.DeserializeObject<GoogleMapsResponse>(content);
         }
 
         // REF: https://developers.google.com/maps/documentation/geocoding/#ComponentFiltering
         private static string ConvertCompenentFiltersToQuerystringParameter(ComponentFilters filters)
         {
-            filters.ShouldNotBe(null);
+            if (filters == null)
+            {
+                throw new ArgumentNullException("filters");
+            }
 
             var items = new Dictionary<string, string>();
 

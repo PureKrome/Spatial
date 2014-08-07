@@ -1,4 +1,4 @@
-﻿namespace Spatial.Core.Models
+﻿namespace Spatial.Services
 {
     public class Coordinate
     {
