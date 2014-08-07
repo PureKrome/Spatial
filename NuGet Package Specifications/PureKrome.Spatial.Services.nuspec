@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
-        <id>PureKrome.Spatial.Services</id>
+        <id>WorldDomination.Spatial</id>
         <version>1.0</version>
         <title>Spatial Services: Google and Nominatum spatial services.</title>
         <authors>Justin Adler</authors>
@@ -17,11 +17,11 @@
         <tags>spatial geospatial geocode geocoding nominatum google googlemapsapi worlddomination worldomination unicorn magicalunicorn magical-unicorn</tags>
         <dependencies>
             <dependency id="Newtonsoft.Json" version="[6.0.4, 7.0.0.0)" />
-            <dependency id="PureKrome.HttpClient.Helpers" version="[1.0.0.0, 2.0.0.0)" />
+            <dependency id="WorldDomination.HttpClient.Helpers" version="[1.0.0.0, 2.0.0.0)" />
         </dependencies>
     </metadata>
     <files>
-        <file src="..\Code\Spatial.Services\bin\Release\Spatial.Services.dll" target="lib\net45\Spatial.Services.dll" />
+        <file src="..\Code\Spatial\bin\Release\WorldDomination.Spatial.dll" target="lib\net45\WorldDomination.Spatial.dll" />
         <file src="ReadMe.txt" target="ReadMe.txt" />
     </files>
 </package>
