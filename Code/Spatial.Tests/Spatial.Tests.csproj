@@ -85,7 +85,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Spatial.Services\Spatial.Services.csproj">
+    <ProjectReference Include="..\Spatial\Spatial.csproj">
       <Project>{e20ad303-d899-4ea9-a376-86638a2c536e}</Project>
       <Name>Spatial.Services</Name>
     </ProjectReference>
