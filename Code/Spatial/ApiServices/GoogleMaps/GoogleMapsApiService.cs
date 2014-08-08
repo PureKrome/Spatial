@@ -4,10 +4,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using HttpClient.Helpers;
 using Newtonsoft.Json;
+using WorldDomination.Net.Http;
 
-namespace WorldDomination.Spatial.Services.ApiServices.GoogleMaps
+namespace WorldDomination.Spatial.ApiServices.GoogleMaps
 {
     public class GoogleMapsApiService : IGoogleMapsApiService
     {

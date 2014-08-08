@@ -1,4 +1,4 @@
-﻿namespace WorldDomination.Spatial.Services
+﻿namespace WorldDomination.Spatial
 {
     public interface ICoordinateCovertable
     {

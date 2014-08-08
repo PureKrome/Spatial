@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using HttpClient.Helpers;
 using Shouldly;
-using WorldDomination.Spatial.Services.ApiServices.Nominatum;
+using WorldDomination.Net.Http;
+using WorldDomination.Spatial.ApiServices.Nominatum;
 using Xunit;
 
 namespace Spatial.Tests.ApiServices

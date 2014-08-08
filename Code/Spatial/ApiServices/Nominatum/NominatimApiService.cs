@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using HttpClient.Helpers;
 using Newtonsoft.Json;
+using WorldDomination.Net.Http;
 
-namespace WorldDomination.Spatial.Services.ApiServices.Nominatum
+namespace WorldDomination.Spatial.ApiServices.Nominatum
 {
     public class NominatimApiService
     {

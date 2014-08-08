@@ -35,10 +35,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HttpClient.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\PureKrome.HttpClient.Helpers.1.0\lib\net45\HttpClient.Helpers.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -53,6 +49,9 @@
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="WorldDomination.HttpClient.Helpers">
+      <HintPath>..\..\packages\WorldDomination.HttpClient.Helpers.1.0\lib\net45\WorldDomination.HttpClient.Helpers.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiServices\GoogleMaps\ComponentFilters.cs" />

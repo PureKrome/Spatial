@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using HttpClient.Helpers;
 using Shouldly;
-using WorldDomination.Spatial.Services.ApiServices.GoogleMaps;
+using WorldDomination.Net.Http;
+using WorldDomination.Spatial.ApiServices.GoogleMaps;
 using Xunit;
 
 namespace Spatial.Tests.ApiServices
@@ -13,7 +13,6 @@ namespace Spatial.Tests.ApiServices
         public class GeocodeFacts
         {
             [Fact]
-            //[Fact]
             public async Task GivenAValidQuery_Geocode_ReturnsSomeData()
             {
                 // Arrange.
