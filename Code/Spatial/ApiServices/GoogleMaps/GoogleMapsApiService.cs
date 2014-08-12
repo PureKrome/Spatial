@@ -31,7 +31,7 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
                 }
             }
 
-            HttpResponseMessage response = null;
+            HttpResponseMessage response;
             using (var httpClient = HttpClientFactory.GetHttpClient())
             {
                 response = await httpClient.GetAsync(requestUrl.ToString());
