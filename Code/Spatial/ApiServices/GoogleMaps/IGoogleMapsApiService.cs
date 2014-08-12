@@ -4,6 +4,6 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
 {
     public interface IGoogleMapsApiService
     {
-        Task<GoogleMapsResponse> GeocodeAsync(string query, ComponentFilters filters);
+        Task<GoogleMapsResponse> GeocodeAsync(string query, ComponentFilters filters = null);
     }
 }
