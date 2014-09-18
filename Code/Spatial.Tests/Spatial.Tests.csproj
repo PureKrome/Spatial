@@ -65,19 +65,22 @@
     <Compile Include="ApiServices\GoogleApiServiceFacts.cs" />
     <Compile Include="ApiServices\NominatumApiServiceFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="Sample Data\Google - Geocode - Error Result.json">
+    <None Include="Sample Data\Google\Result - 15 Spinnaker Rise Sanctuary Lakes Victoria.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Sample Data\Google - Mominatim - No Result.json">
+    <None Include="Sample Data\Google\Error Result.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Sample Data\Google - Mominatim - Result.json">
+    <None Include="Sample Data\Nominatim\No Result.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Sample Data\Google - Geocode - Results.json">
+    <None Include="Sample Data\Nominatim\Result.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Sample Data\Google - Geocode - Zero Results.json">
+    <None Include="Sample Data\Google\Results.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Sample Data\Google\Zero Results.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

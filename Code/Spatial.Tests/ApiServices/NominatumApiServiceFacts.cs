@@ -16,7 +16,7 @@ namespace Spatial.Tests.ApiServices
             public async Task GivenAValidQuery_Geocode_ReturnsSomeData()
             {
                 // Arrange.
-                var json = File.ReadAllText("Sample Data\\Google - Mominatim - Result.json");
+                var json = File.ReadAllText("Sample Data\\Nominatim\\Result.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
                 HttpClientFactory.MessageHandler = new FakeHttpMessageHandler(response);
                 var service = new NominatimApiService();
@@ -36,7 +36,7 @@ namespace Spatial.Tests.ApiServices
             public async Task GivenAnInValidQuery_Geocode_ReturnsNoResults()
             {
                 // Arrange.
-                var json = File.ReadAllText("Sample Data\\Google - Mominatim - No Result.json");
+                var json = File.ReadAllText("Sample Data\\Nominatim\\No Result.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
                 HttpClientFactory.MessageHandler = new FakeHttpMessageHandler(response);
                 var service = new NominatimApiService();
