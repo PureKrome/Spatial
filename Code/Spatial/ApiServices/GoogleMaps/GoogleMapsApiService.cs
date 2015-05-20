@@ -38,12 +38,8 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
                 }
             }
 
-            HttpResponseMessage response;
-            using (var httpClient = _httpClient ?? new HttpClient())
-            {
-                response = await httpClient.GetAsync(requestUrl.ToString());
-            }
-
+            var httpClient = _httpClient ?? new HttpClient();
+            var response = await httpClient.GetAsync(requestUrl.ToString());
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)

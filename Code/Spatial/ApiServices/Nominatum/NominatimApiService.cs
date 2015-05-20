@@ -34,19 +34,13 @@ namespace WorldDomination.Spatial.ApiServices.Nominatum
                 query,
                 Limit <= 0 ? 1 : Limit);
 
-            HttpResponseMessage response;
-
-            using (var httpClient = _httpClient ?? new HttpClient())
+            var httpClient = _httpClient ?? new HttpClient();
+            if (!string.IsNullOrWhiteSpace(Email))
             {
-                if (!string.IsNullOrWhiteSpace(Email))
-                {
-                    httpClient.DefaultRequestHeaders.Add("user-agent", Email);
-                }
-
-                var requestUri = new Uri(requestUrl.ToString());
-                response = await httpClient.GetAsync(requestUri);
+                httpClient.DefaultRequestHeaders.Add("user-agent", Email);
             }
-
+            var requestUri = new Uri(requestUrl.ToString());
+            var response = await httpClient.GetAsync(requestUri);
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
