@@ -11,6 +11,13 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
 {
     public class GoogleMapsApiService : IGoogleMapsApiService
     {
+        private readonly HttpClient _httpClient;
+
+        public GoogleMapsApiService(HttpClient httpClient = null)
+        {
+            _httpClient = httpClient;
+        }
+
         public async Task<GoogleMapsResponse> GeocodeAsync(string query, ComponentFilters filters = null)
         {
             if (string.IsNullOrWhiteSpace(query))
@@ -32,7 +39,7 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
             }
 
             HttpResponseMessage response;
-            using (var httpClient = HttpClientFactory.GetHttpClient())
+            using (var httpClient = _httpClient ?? new HttpClient())
             {
                 response = await httpClient.GetAsync(requestUrl.ToString());
             }

@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Shouldly;
 using WorldDomination.Net.Http;
@@ -16,8 +17,6 @@ namespace Spatial.Tests.ApiServices
             public async Task GivenAValidQuery_Geocode_ReturnsSomeData()
             {
                 // Arrange.
-                var service = new GoogleMapsApiService();
-                
                 const string streetNumber = "4";
                 const string street = "Albert Pl";
                 const string suburb = "RICHMOND";
@@ -37,7 +36,8 @@ namespace Spatial.Tests.ApiServices
                 };
                 var json = File.ReadAllText("Sample Data\\Google\\Results.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                HttpClientFactory.MessageHandler = new FakeHttpMessageHandler(response);
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(response));
+                var service = new GoogleMapsApiService(httpClient);
 
                 // Act.
                 var result = await service.GeocodeAsync(query, componentFilters);
@@ -57,9 +57,8 @@ namespace Spatial.Tests.ApiServices
                 // Arrange.
                 var json = File.ReadAllText("Sample Data\\Google\\Zero Results.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                HttpClientFactory.MessageHandler = new FakeHttpMessageHandler(response);
-
-                var service = new GoogleMapsApiService();
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(response));
+                var service = new GoogleMapsApiService(httpClient);
 
                 // Act.
                 var result = await service.GeocodeAsync("sdfhgjshf ashdf ashdfj asd gfajskdg");
@@ -75,9 +74,8 @@ namespace Spatial.Tests.ApiServices
                 // Arrange.
                 var json = File.ReadAllText("Sample Data\\Google\\Error Result.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                HttpClientFactory.MessageHandler = new FakeHttpMessageHandler(response);
-
-                var service = new GoogleMapsApiService();
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(response)); 
+                var service = new GoogleMapsApiService(httpClient);
 
                 // Act.
                 var result = await service.GeocodeAsync("whatever");
@@ -96,9 +94,6 @@ namespace Spatial.Tests.ApiServices
             public async Task GivenAQuery15SpinnakerRiseSanctuaryLakesVictoriaAustralia_Geocode_ReturnsSomeData()
             {
                 // Arrange.
-                var service = new GoogleMapsApiService();
-
-                
                 const string streetNumber = "15";
                 const string street = "Spinnaker Rise";
                 //const string suburb = "Sanctuary Lakes";
@@ -117,7 +112,8 @@ namespace Spatial.Tests.ApiServices
                 };
                 var json = File.ReadAllText("Sample Data\\Google\\Result - 15 Spinnaker Rise Sanctuary Lakes Victoria.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                HttpClientFactory.MessageHandler = new FakeHttpMessageHandler(response);
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(response));
+                var service = new GoogleMapsApiService(httpClient);
 
                 // Act.
                 var result = await service.GeocodeAsync(query, componentFilters);

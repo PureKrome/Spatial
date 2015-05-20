@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -7,13 +8,20 @@ using WorldDomination.Net.Http;
 
 namespace WorldDomination.Spatial.ApiServices.Nominatum
 {
+    // Reference: http://wiki.openstreetmap.org/wiki/Nominatim
     public class NominatimApiService
     {
-        // Reference: http://wiki.openstreetmap.org/wiki/Nominatim
+        private readonly HttpClient _httpClient;
+
+        public NominatimApiService(HttpClient httpClient = null)
+        {
+            _httpClient = httpClient;
+        }
 
         public string Email { get; set; }
         public int Limit { get; set; }
 
+        
         public async Task<List<NominatimResponse>> GeocodeAsync(string query)
         {
             if (string.IsNullOrWhiteSpace(query))
@@ -26,14 +34,19 @@ namespace WorldDomination.Spatial.ApiServices.Nominatum
                 query,
                 Limit <= 0 ? 1 : Limit);
 
-            var httpClient = HttpClientFactory.GetHttpClient();
-            if (!string.IsNullOrWhiteSpace(Email))
+            HttpResponseMessage response;
+
+            using (var httpClient = _httpClient ?? new HttpClient())
             {
-                httpClient.DefaultRequestHeaders.Add("user-agent", Email);
+                if (!string.IsNullOrWhiteSpace(Email))
+                {
+                    httpClient.DefaultRequestHeaders.Add("user-agent", Email);
+                }
+
+                var requestUri = new Uri(requestUrl.ToString());
+                response = await httpClient.GetAsync(requestUri);
             }
 
-            var requestUri = new Uri(requestUrl.ToString());
-            var response = await httpClient.GetAsync(requestUri);
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)

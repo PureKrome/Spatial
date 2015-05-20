@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Shouldly;
 using WorldDomination.Net.Http;
@@ -18,8 +19,8 @@ namespace Spatial.Tests.ApiServices
                 // Arrange.
                 var json = File.ReadAllText("Sample Data\\Nominatim\\Result.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                HttpClientFactory.MessageHandler = new FakeHttpMessageHandler(response);
-                var service = new NominatimApiService();
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(response));
+                var service = new NominatimApiService(httpClient);
 
                 // Act.
                 var result = await service.GeocodeAsync("whatever");
@@ -38,8 +39,8 @@ namespace Spatial.Tests.ApiServices
                 // Arrange.
                 var json = File.ReadAllText("Sample Data\\Nominatim\\No Result.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                HttpClientFactory.MessageHandler = new FakeHttpMessageHandler(response);
-                var service = new NominatimApiService();
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(response));
+                var service = new NominatimApiService(httpClient);
 
                 // Act.
                 var result = await service.GeocodeAsync("sdfhgjshf ashdf ashdfj asd gfajskdg");
