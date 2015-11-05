@@ -10,10 +10,30 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
 {
     public class GoogleMapsApiService : IGoogleMapsApiService
     {
+        private readonly string _apiKey;
         private readonly HttpClient _httpClient;
 
-        public GoogleMapsApiService(HttpClient httpClient = null)
+
+        public GoogleMapsApiService() : this(null, null)
         {
+        }
+
+        public GoogleMapsApiService(string apiKey) : this(apiKey, null)
+        {
+        }
+
+        public GoogleMapsApiService(HttpClient httpClient = null) : this(null, httpClient)
+        {
+        }
+
+        public GoogleMapsApiService(string apiKey,
+            HttpClient httpClient)
+        {
+            if (!string.IsNullOrWhiteSpace(apiKey))
+            {
+                _apiKey = apiKey.Trim();    
+            }
+            
             _httpClient = httpClient;
         }
 
@@ -25,8 +45,14 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
             }
 
             var requestUrl = new StringBuilder();
-            requestUrl.AppendFormat("http://maps.googleapis.com/maps/api/geocode/json?address={0}&sensor=false",
+            requestUrl.AppendFormat("https://maps.googleapis.com/maps/api/geocode/json?address={0}&sensor=false",
                 Uri.EscapeDataString(query));
+
+            // Append the API key if it's been provided.
+            if (!string.IsNullOrWhiteSpace(_apiKey))
+            {
+                requestUrl.AppendFormat("&key={0}", _apiKey);
+            }
 
             if (filters != null)
             {
