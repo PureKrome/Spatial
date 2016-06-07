@@ -7,7 +7,7 @@
 
         public override string ToString()
         {
-            return string.Format("Lat:{0} Long:{1}", Latitude, Longitude);
+            return $"Lat:{Latitude} Long:{Longitude}";
         }
     }
 }

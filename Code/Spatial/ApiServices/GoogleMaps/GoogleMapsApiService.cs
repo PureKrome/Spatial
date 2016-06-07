@@ -26,14 +26,13 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
         {
         }
 
-        public GoogleMapsApiService(string apiKey,
-            HttpClient httpClient)
+        public GoogleMapsApiService(string apiKey, HttpClient httpClient)
         {
             if (!string.IsNullOrWhiteSpace(apiKey))
             {
-                _apiKey = apiKey.Trim();    
+                _apiKey = apiKey.Trim();
             }
-            
+
             _httpClient = httpClient;
         }
 
@@ -41,17 +40,17 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
         {
             if (string.IsNullOrWhiteSpace(query))
             {
-                throw new ArgumentNullException("query");
+                throw new ArgumentNullException(nameof(query));
             }
 
             var requestUrl = new StringBuilder();
-            requestUrl.AppendFormat("https://maps.googleapis.com/maps/api/geocode/json?address={0}&sensor=false",
-                Uri.EscapeDataString(query));
+            requestUrl.Append(
+                $"https://maps.googleapis.com/maps/api/geocode/json?address={Uri.EscapeDataString(query)}&sensor=false");
 
             // Append the API key if it's been provided.
             if (!string.IsNullOrWhiteSpace(_apiKey))
             {
-                requestUrl.AppendFormat("&key={0}", _apiKey);
+                requestUrl.Append($"&key={_apiKey}");
             }
 
             if (filters != null)
@@ -59,7 +58,7 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
                 var components = ConvertCompenentFiltersToQuerystringParameter(filters);
                 if (!string.IsNullOrWhiteSpace(components))
                 {
-                    requestUrl.AppendFormat("&components={0}", components);
+                    requestUrl.Append($"&components={components}");
                 }
             }
 
@@ -70,9 +69,7 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
             if (!response.IsSuccessStatusCode)
             {
                 var errorMessage =
-                    string.Format("Failed to retrieve a Google Maps GeoCode result. Status Code: {0}. Message: {1}",
-                        response.StatusCode,
-                        content);
+                    $"Failed to retrieve a Google Maps GeoCode result. Status Code: {response.StatusCode}. Message: {content}";
                 throw new Exception(errorMessage);
             }
 

@@ -82,20 +82,13 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
 
         public List<string> Types { get; set; }
 
-        public Coordinate ToCoordinate
-        {
-            get
+        public Coordinate ToCoordinate => Geometry?.Location != null
+            ? new Coordinate
             {
-                return Geometry != null &&
-                       Geometry.Location != null
-                    ? new Coordinate
-                    {
-                        Latitude = (decimal) Geometry.Location.Lat,
-                        Longitude = (decimal) Geometry.Location.Lng
-                    }
-                    : null;
+                Latitude = (decimal) Geometry.Location.Lat,
+                Longitude = (decimal) Geometry.Location.Lng
             }
-        }
+            : null;
     }
 
     public class GoogleMapsResponse : ICoordinateCovertable
@@ -109,15 +102,9 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
         /// <summary>
         ///     NOTE: This will only be the first Result.
         /// </summary>
-        public Coordinate ToCoordinate
-        {
-            get
-            {
-                return Results != null &&
-                       Results.Count > 0
-                    ? Results[0].ToCoordinate
-                    : null;
-            }
-        }
+        public Coordinate ToCoordinate => Results != null &&
+                                          Results.Count > 0
+            ? Results[0].ToCoordinate
+            : null;
     }
 }
