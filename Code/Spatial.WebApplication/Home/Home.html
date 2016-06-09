@@ -1,0 +1,19 @@
+﻿<html>
+<head>
+    <title>Maps spatial lookups.</title>
+</head>
+<body>
+<h1>Google spatial interactive api</h1>
+<div>
+    <form id="mainForm">
+        Address <input type="text" id="address" name="address" value="1 smith street brunswick victoria australia" size="50"/><br/>
+        Google API Key <input type="text" id="googleApiKey" name="googleApiKey"/>
+        <input type="button" onclick="getGoogleResults($('#address').val(), $('#googleApiKey').val());" value="Hit it"/>
+    </form>
+</div>
+<div><pre id="result"></pre></div>
+<div id="errorMessage"></div>
+<script src="/Scripts/jquery-2.2.3.min.js"></script>
+<script src="/Scripts/Spatial.js"></script>
+</body>
+</html>

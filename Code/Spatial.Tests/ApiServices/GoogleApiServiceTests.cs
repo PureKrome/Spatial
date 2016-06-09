@@ -9,9 +9,9 @@ using Xunit;
 
 namespace Spatial.Tests.ApiServices
 {
-    public class GoogleApiServiceFacts
+    public class GoogleApiServiceTests
     {
-        public class GeocodeFacts
+        public class GeocodeTests
         {
             [Fact]
             public async Task GivenAValidQuery_Geocode_ReturnsSomeData()
@@ -23,12 +23,7 @@ namespace Spatial.Tests.ApiServices
                 const string state = "VIC";
                 const string postcode = "3121";
                 const string country = "AUSTRALIA";
-                var query = string.Format("{0} {1}, {2} {3} {4}, {5}", streetNumber,
-                    street,
-                    suburb,
-                    state,
-                    postcode,
-                    country);
+                var query = $"{streetNumber} {street}, {suburb} {state} {postcode}, {country}";
 
                 var componentFilters = new ComponentFilters
                 {
@@ -100,11 +95,7 @@ namespace Spatial.Tests.ApiServices
                 const string state = "VIC";
                 const string postcode = "3030";
                 const string country = "AUSTRALIA";
-                var query = string.Format("{0} {1}, {2}, {3}",
-                    streetNumber,
-                    street,
-                    state,
-                    country);
+                var query = $"{streetNumber} {street}, {state}, {country}";
 
                 var componentFilters = new ComponentFilters
                 {

@@ -79,7 +79,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiServices\GoogleApiServiceFacts.cs" />
+    <Compile Include="ApiServices\GoogleApiServiceTests.cs" />
     <Compile Include="ApiServices\NominatumApiServiceFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Sample Data\Google\Result - 15 Spinnaker Rise Sanctuary Lakes Victoria.json">
