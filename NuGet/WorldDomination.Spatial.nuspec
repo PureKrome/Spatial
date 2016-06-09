@@ -4,8 +4,8 @@
         <id>WorldDomination.Spatial</id>
         <version>0.0</version>
         <title>Spatial Services: Google and Nominatum spatial services.</title>
-        <authors>Justin Adler</authors>
-        <owners>Justin Adler</owners>
+        <authors>Pure Krome</authors>
+        <owners>Pure Krome</owners>
         <licenseUrl>https://raw.github.com/PureKrome/Spatial/master/License.txt</licenseUrl>
         <projectUrl>https://github.com/PureKrome/Spatial</projectUrl>
         <iconUrl>http://i.imgur.com/bR4Yf.jpg</iconUrl>
@@ -16,8 +16,8 @@
         <language>en-AU</language>
         <tags>spatial geospatial geocode geocoding nominatum google googlemapsapi worlddomination worldomination unicorn magicalunicorn magical-unicorn</tags>
         <dependencies>
-            <dependency id="Newtonsoft.Json" version="[8.0.1, 9.0.0)" />
-            <dependency id="WorldDomination.HttpClient.Helpers" version="[3.0.0, 4.0.0)" />
+            <dependency id="Newtonsoft.Json" version="[8.0.1,)" />
+            <dependency id="WorldDomination.HttpClient.Helpers" version="[3.0.0,)" />
         </dependencies>
     </metadata>
     <files>
