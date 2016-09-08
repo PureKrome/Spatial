@@ -3,6 +3,7 @@
     public class GetGoogleCommand
     {
         public string Address { get; set; }
-        public string GoogleApiKey { get; set; }
+        public string Postcode { get; set; }
+        public string Key { get; set; }
     }
 }

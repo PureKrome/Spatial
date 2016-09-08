@@ -1,5 +1,5 @@
 ﻿
-function getGoogleResults(address, googleApiKey) {
+function getGoogleResults(address, postcode, key) {
 
     // Clean up UI.
     displayResult("");
@@ -9,7 +9,8 @@ function getGoogleResults(address, googleApiKey) {
     $.getJSON("/google",
         {
             'address': address,
-            'googleApiKey': googleApiKey
+            'postcode' : postcode,
+            'key': key
         })
         .done((data) => { displayResult(data) })
         .fail((qXhr, textStatus, errorThrown) => {

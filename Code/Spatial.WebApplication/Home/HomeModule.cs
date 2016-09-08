@@ -23,8 +23,13 @@ namespace Spatial.WebApplication.Home
             CancellationToken cancellationToken)
         {
             var command = this.Bind<GetGoogleCommand>();
-            var service = new GoogleMapsApiService(command.GoogleApiKey);
-            return await service.GeocodeAsync(command.Address);
+            var service = new GoogleMapsApiService(command.Key);
+            ComponentFilters filters = null;
+            if (!string.IsNullOrWhiteSpace(command.Postcode))
+            {
+                filters = new ComponentFilters {PostalCode = command.Postcode};
+            }
+            return await service.GeocodeAsync(command.Address, filters);
         }
     }
 }

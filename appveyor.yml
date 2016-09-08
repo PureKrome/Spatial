@@ -27,6 +27,7 @@ assembly_info:
   assembly_informational_version: '{version}'
 
 build:
+  publish_wap: true
   parallel: true
   verbosity: minimal
 
@@ -35,13 +36,11 @@ on_success:
 
 deploy:
 - provider: WebDeploy
-  server: https://openrealestate.scm.azurewebsites.net:443/msdeploy.axd?site=openrealestate
-  website: openrealestate
-  username: $openrealestate
+  server: https://spatialservices.scm.azurewebsites.net:443/msdeploy.axd?site=spatialservices
+  website: spatialservices
+  username: $spatialservices
   password:
-    secure: dDSrZ7EKMDsUZfcWehsTJRYRTq4Txg1BfI01FSesmHUYqE3X+ylNVfQrZE51c9hukliPhTa0MyolrkcQB3btsw==
+    secure: 0vcr+FUbAyn003aQJS6GiehOL58lMwAwHZiESh3cyBxZJgOy2qNtbVjelE9HzwICzel5bV816Se6DYdy03OJkA==
   remove_files: true
 cache:
   - packages -> **\packages.config
-
-

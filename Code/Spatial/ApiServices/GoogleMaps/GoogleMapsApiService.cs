@@ -81,7 +81,7 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
         {
             if (filters == null)
             {
-                throw new ArgumentNullException("filters");
+                throw new ArgumentNullException(nameof(filters));
             }
 
             var items = new Dictionary<string, string>();
