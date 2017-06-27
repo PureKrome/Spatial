@@ -38,7 +38,9 @@ artifacts:
   - path: '**\*.nupkg'
   - path: website
 
-
+# Myget -> master and not tagged.
+# Nuget -> master and tagged.
+# Website -> master and tagged.
 deploy:
   - provider: NuGet
     server: https://www.myget.org/F/pk-development/api/v2/package
