@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.2</TargetFramework>
+    <AssemblyName>WorldDomination.Spatial</AssemblyName>
+    <RootNamespace>WorldDomination.Spatial</RootNamespace>
+    <Version>0.0</Version>
+    <Authors>Pure Krome</Authors>
+    <Company>WorldDomination Technologies Pty. Ltd.</Company>
+    <Product>Spatial Services: Google and Nominatum spatial services.</Product>
+    <Description>Spatial.Services is a simple package that makes it easy for you to consume some 3rd party Spatial Api services.</Description>
+    <Copyright>2013</Copyright>
+    <PackageLicenseUrl>https://raw.github.com/PureKrome/Spatial/master/License.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/PureKrome/Spatial</PackageProjectUrl>
+    <PackageIconUrl>http://i.imgur.com/bR4Yf.jpg</PackageIconUrl>
+    <RepositoryUrl>https://github.com/PureKrome/Spatial</RepositoryUrl>
+    <PackageTags>spatial geospatial geocode geocoding nominatum google googlemapsapi worlddomination worldomination unicorn magicalunicorn magical-unicorn</PackageTags>
+    <PackageId>WorldDomination.Spatial</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+</Project>

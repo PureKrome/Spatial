@@ -1,13 +1,29 @@
-#Spatial Utilities for .NET applications
+# Spatial Utilities for .NET applications
 
 This library contains various spatial utilities to help any .NET application.
 
 ![](http://i.imgur.com/FGnyWDH.png)
 
-![](https://ci.appveyor.com/api/projects/status/4klu6n9qeso35s3g)
+![](https://ci.appveyor.com/api/projects/status/4klu6n9qeso35s3g) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/PureKrome/Spatial/blob/master/License.txt)
 
-##Api Services
-###NominatumApiService
+## Api Services
+
+### GoogleMapsApiService
+Returns some basic geospatial information from the [Google Api web service](https://developers.google.com/maps/documentation/webservices/).
+
+    // Arrange.
+    var service  = new GoogleMapsApiService();
+    service.RestClient = mockRestClient; // Optional: you can pass in a mocked/fake rest client :)
+    
+    // Act.
+    // Note: we need to cast, because the result type is a object.
+    var result = service.Geocode("Bondi Beach, Sydney, Australia") as GoogleMapsResponse;
+    result.
+
+    // Now you have access to various Google Maps Api specific data, like Latitude/Longitude and 
+    // a verbose location/address.
+
+### NominatumApiService
 Returns some basic geospatial information from the [Nominatum web service](http://wiki.openstreetmap.org/wiki/Nominatim).
 
     // Arrange.
@@ -22,31 +38,15 @@ Returns some basic geospatial information from the [Nominatum web service](http:
 
     // Now you have access to various Nominatum specific data, like Latitude/Longitude and 
     // a verbose location/address.
-
-###GoogleMapsApiService
-Returns some basic geospatial information from the [Google Api web service](https://developers.google.com/maps/documentation/webservices/).
-
-    // Arrange.
-    var service  = new GoogleMapsApiService();
-    service.RestClient = mockRestClient; // Optional: you can pass in a mocked/fake rest client :)
     
-    // Act.
-    // Note: we need to cast, because the result type is a object.
-    var result = service.Geocode("Bondi Beach, Sydney, Australia") as GoogleMapsResponse;
-    result.
-
-    // Now you have access to various Google Maps Api specific data, like Latitude/Longitude and 
-    // a verbose location/address.
-    
-###Geocode 
+### Geocode 
 Given an query/address, this get's the Latitude and Longitude of the location.
 
 It uses the following 3rd party api's to resolve this (in order)    
 
-  1. Nominatum
-  2. Google Api.
+  1. Google Api.
+  2. Nominatum
 
-.
 
     // Arrange.
     var service = new GeocodingService();
@@ -59,7 +59,9 @@ It uses the following 3rd party api's to resolve this (in order)
     // coordinate.Latitude
     // coordinate.Longitude
 
-    Remarks: Learn what [geocoding is on Wikipedia(http://en.wikipedia.org/wiki/Geocoding).
+
+Remarks: Learn what [geocoding is on Wikipedia(http://en.wikipedia.org/wiki/Geocoding).
+
 
 License: this code is licensed under MIT.
 -- end of file --
