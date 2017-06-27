@@ -1,0 +1,172 @@
+﻿{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "4",
+               "short_name" : "4",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Albert Street",
+               "short_name" : "Albert St",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Richmond",
+               "short_name" : "Richmond",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Victoria",
+               "short_name" : "VIC",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Australia",
+               "short_name" : "AU",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "3121",
+               "short_name" : "3121",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "4 Albert Street, Richmond VIC 3121, Australia",
+         "geometry" : {
+            "location" : {
+               "lat" : -37.828601,
+               "lng" : 144.997996
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -37.8272520197085,
+                  "lng" : 144.9993449802915
+               },
+               "southwest" : {
+                  "lat" : -37.8299499802915,
+                  "lng" : 144.9966470197085
+               }
+            }
+         },
+         "partial_match" : true,
+         "types" : [ "street_address" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "4",
+               "short_name" : "4",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Albert Place",
+               "short_name" : "Albert Pl",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Burnley",
+               "short_name" : "Burnley",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Victoria",
+               "short_name" : "VIC",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Australia",
+               "short_name" : "AU",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "3121",
+               "short_name" : "3121",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "4 Albert Place, Burnley VIC 3121, Australia",
+         "geometry" : {
+            "location" : {
+               "lat" : -37.8246495,
+               "lng" : 145.0126045
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -37.8233005197085,
+                  "lng" : 145.0139534802915
+               },
+               "southwest" : {
+                  "lat" : -37.8259984802915,
+                  "lng" : 145.0112555197085
+               }
+            }
+         },
+         "partial_match" : true,
+         "types" : [ "street_address" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Albert Street",
+               "short_name" : "Albert St",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Richmond",
+               "short_name" : "Richmond",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Victoria",
+               "short_name" : "VIC",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Australia",
+               "short_name" : "AU",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "3121",
+               "short_name" : "3121",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Albert Street, Richmond VIC 3121, Australia",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : -37.8111237,
+                  "lng" : 144.9912034
+               },
+               "southwest" : {
+                  "lat" : -37.811281,
+                  "lng" : 144.9909847
+               }
+            },
+            "location" : {
+               "lat" : -37.8112235,
+               "lng" : 144.9911356
+            },
+            "location_type" : "GEOMETRIC_CENTER",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -37.80985336970851,
+                  "lng" : 144.9924430302915
+               },
+               "southwest" : {
+                  "lat" : -37.8125513302915,
+                  "lng" : 144.9897450697085
+               }
+            }
+         },
+         "partial_match" : true,
+         "types" : [ "route" ]
+      }
+   ],
+   "status" : "OK"
+}

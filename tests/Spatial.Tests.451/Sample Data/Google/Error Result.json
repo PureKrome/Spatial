@@ -1,0 +1,5 @@
+﻿{
+  "error_message": "The 'sensor' parameter specified in the request must be set to either 'true' or 'false'.",
+  "results": [],
+  "status": "REQUEST_DENIED"
+}

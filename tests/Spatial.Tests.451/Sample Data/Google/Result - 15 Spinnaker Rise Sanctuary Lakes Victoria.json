@@ -1,0 +1,75 @@
+﻿{
+  "results": [
+    {
+      "address_components": [
+        {
+          "long_name": "15",
+          "short_name": "15",
+          "types": [
+            "street_number"
+          ]
+        },
+        {
+          "long_name": "Spinnaker Rise",
+          "short_name": "Spinnaker Rise",
+          "types": [
+            "route"
+          ]
+        },
+        {
+          "long_name": "Point Cook",
+          "short_name": "Point Cook",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Victoria",
+          "short_name": "VIC",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Australia",
+          "short_name": "AU",
+          "types": [
+            "country",
+            "political"
+          ]
+        },
+        {
+          "long_name": "3030",
+          "short_name": "3030",
+          "types": [
+            "postal_code"
+          ]
+        }
+      ],
+      "formatted_address": "15 Spinnaker Rise, Point Cook VIC 3030, Australia",
+      "geometry": {
+        "location": {
+          "lat": -37.899923,
+          "lng": 144.775248
+        },
+        "location_type": "ROOFTOP",
+        "viewport": {
+          "northeast": {
+            "lat": -37.89857401970851,
+            "lng": 144.7765969802915
+          },
+          "southwest": {
+            "lat": -37.9012719802915,
+            "lng": 144.7738990197085
+          }
+        }
+      },
+      "types": [
+        "street_address"
+      ]
+    }
+  ],
+  "status": "OK"
+}
