@@ -49,6 +49,7 @@ deploy:
     skip_symbols: true
     artifact: /.*\.nupkg/
     on:
+      branch: master
       appveyor_repo_tag: false
   - provider: NuGet
     api_key:
