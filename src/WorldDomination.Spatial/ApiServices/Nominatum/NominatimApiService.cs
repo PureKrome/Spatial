@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -12,7 +12,7 @@ namespace WorldDomination.Spatial.ApiServices.Nominatum
     {
         private readonly HttpClient _httpClient;
 
-        public NominatimApiService(HttpClient httpClient = null)
+        public NominatimApiService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
@@ -33,13 +33,18 @@ namespace WorldDomination.Spatial.ApiServices.Nominatum
                 query,
                 Limit <= 0 ? 1 : Limit);
 
-            var httpClient = _httpClient ?? new HttpClient();
+            var httpRequestMessage = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri(requestUrl.ToString())
+            };
+
             if (!string.IsNullOrWhiteSpace(Email))
             {
-                httpClient.DefaultRequestHeaders.Add("user-agent", Email);
+                httpRequestMessage.Headers.Add("user-agent", Email);
             }
-            var requestUri = new Uri(requestUrl.ToString());
-            var response = await httpClient.GetAsync(requestUri);
+
+            var response = await _httpClient.SendAsync(httpRequestMessage);
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)

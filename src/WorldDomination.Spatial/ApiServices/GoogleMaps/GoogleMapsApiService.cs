@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -12,19 +12,6 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
     {
         private readonly string _apiKey;
         private readonly HttpClient _httpClient;
-
-
-        public GoogleMapsApiService() : this(null, null)
-        {
-        }
-
-        public GoogleMapsApiService(string apiKey) : this(apiKey, null)
-        {
-        }
-
-        public GoogleMapsApiService(HttpClient httpClient = null) : this(null, httpClient)
-        {
-        }
 
         public GoogleMapsApiService(string apiKey, HttpClient httpClient)
         {
@@ -44,14 +31,7 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
             }
 
             var requestUrl = new StringBuilder();
-            requestUrl.Append(
-                $"https://maps.googleapis.com/maps/api/geocode/json?address={Uri.EscapeDataString(query)}&sensor=false");
-
-            // Append the API key if it's been provided.
-            if (!string.IsNullOrWhiteSpace(_apiKey))
-            {
-                requestUrl.Append($"&key={_apiKey}");
-            }
+            requestUrl.Append($"https://maps.googleapis.com/maps/api/geocode/json?address={Uri.EscapeDataString(query)}&sensor=false&key={_apiKey}");
 
             if (filters != null)
             {
@@ -62,8 +42,7 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
                 }
             }
 
-            var httpClient = _httpClient ?? new HttpClient();
-            var response = await httpClient.GetAsync(requestUrl.ToString());
+            var response = await _httpClient.GetAsync(requestUrl.ToString());
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
@@ -79,7 +58,7 @@ namespace WorldDomination.Spatial.ApiServices.GoogleMaps
         // REF: https://developers.google.com/maps/documentation/geocoding/#ComponentFiltering
         private static string ConvertCompenentFiltersToQuerystringParameter(ComponentFilters filters)
         {
-            if (filters == null)
+            if (filters is null)
             {
                 throw new ArgumentNullException(nameof(filters));
             }

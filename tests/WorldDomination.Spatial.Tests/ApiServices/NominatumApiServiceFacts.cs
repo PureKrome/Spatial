@@ -6,8 +6,9 @@ using Shouldly;
 using WorldDomination.Net.Http;
 using WorldDomination.Spatial.ApiServices.Nominatum;
 using Xunit;
+// ReSharper disable ConsiderUsingConfigureAwait
 
-namespace Spatial.Tests.ApiServices
+namespace WorldDomination.Spatial.Tests.ApiServices
 {
     public class NominatumApiServiceFacts
     {
@@ -19,7 +20,11 @@ namespace Spatial.Tests.ApiServices
                 // Arrange.
                 var json = File.ReadAllText("Sample Data\\Nominatim\\Result.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                var httpClient = new HttpClient(new FakeHttpMessageHandler(response));
+                var options = new HttpMessageOptions
+                {
+                    HttpResponseMessage = response
+                };
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(options));
                 var service = new NominatimApiService(httpClient);
 
                 // Act.
@@ -39,7 +44,11 @@ namespace Spatial.Tests.ApiServices
                 // Arrange.
                 var json = File.ReadAllText("Sample Data\\Nominatim\\No Result.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                var httpClient = new HttpClient(new FakeHttpMessageHandler(response));
+                var options = new HttpMessageOptions
+                {
+                    HttpResponseMessage = response
+                };
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(options));
                 var service = new NominatimApiService(httpClient);
 
                 // Act.

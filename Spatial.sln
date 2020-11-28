@@ -1,13 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spatial", "Code\Spatial\Spatial.csproj", "{E20AD303-D899-4EA9-A376-86638A2C536E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{0DAD160B-1588-4009-99BB-4D2901DEF12F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		appveyor.yml = appveyor.yml
+		coverlet.runsettings = coverlet.runsettings
+		global.json = global.json
+		ReadMe.md = ReadMe.md
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spatial.Tests", "Code\Spatial.Tests\Spatial.Tests.csproj", "{85B7E1EA-BBE3-45B2-A2B1-CA3743224349}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{90F9D08F-C804-4934-8E8F-80FC0D6C7B65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spatial.WebApplication", "Code\Spatial.WebApplication\Spatial.WebApplication.csproj", "{D213ED82-4280-46BF-A601-C1DD046640D5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E740F76A-58CF-4553-BA5F-EABA7B038FD1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldDomination.Spatial", "src\WorldDomination.Spatial\WorldDomination.Spatial.csproj", "{DC7A4CAD-8247-45D2-87F8-7F8E086BD072}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldDomination.Spatial.Tests", "tests\WorldDomination.Spatial.Tests\WorldDomination.Spatial.Tests.csproj", "{9701117E-AED8-4457-8A22-96C58648ADFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,20 +26,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E20AD303-D899-4EA9-A376-86638A2C536E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E20AD303-D899-4EA9-A376-86638A2C536E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E20AD303-D899-4EA9-A376-86638A2C536E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E20AD303-D899-4EA9-A376-86638A2C536E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85B7E1EA-BBE3-45B2-A2B1-CA3743224349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85B7E1EA-BBE3-45B2-A2B1-CA3743224349}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85B7E1EA-BBE3-45B2-A2B1-CA3743224349}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85B7E1EA-BBE3-45B2-A2B1-CA3743224349}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D213ED82-4280-46BF-A601-C1DD046640D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D213ED82-4280-46BF-A601-C1DD046640D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D213ED82-4280-46BF-A601-C1DD046640D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D213ED82-4280-46BF-A601-C1DD046640D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC7A4CAD-8247-45D2-87F8-7F8E086BD072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC7A4CAD-8247-45D2-87F8-7F8E086BD072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC7A4CAD-8247-45D2-87F8-7F8E086BD072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC7A4CAD-8247-45D2-87F8-7F8E086BD072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9701117E-AED8-4457-8A22-96C58648ADFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9701117E-AED8-4457-8A22-96C58648ADFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9701117E-AED8-4457-8A22-96C58648ADFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9701117E-AED8-4457-8A22-96C58648ADFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DC7A4CAD-8247-45D2-87F8-7F8E086BD072} = {90F9D08F-C804-4934-8E8F-80FC0D6C7B65}
+		{9701117E-AED8-4457-8A22-96C58648ADFA} = {E740F76A-58CF-4553-BA5F-EABA7B038FD1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {890D3DAD-F38A-4FB3-A0D0-C2AAD811EFA8}
 	EndGlobalSection
 EndGlobal

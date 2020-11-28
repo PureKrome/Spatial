@@ -1,4 +1,5 @@
-﻿using System.IO;
+using System;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -6,8 +7,9 @@ using Shouldly;
 using WorldDomination.Net.Http;
 using WorldDomination.Spatial.ApiServices.GoogleMaps;
 using Xunit;
+// ReSharper disable ConsiderUsingConfigureAwait
 
-namespace Spatial.Tests.ApiServices
+namespace WorldDomination.Spatial.Tests.ApiServices
 {
     public class GoogleApiServiceTests
     {
@@ -31,8 +33,13 @@ namespace Spatial.Tests.ApiServices
                 };
                 var json = File.ReadAllText("Sample Data\\Google\\Results.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                var httpClient = new HttpClient(new FakeHttpMessageHandler(response));
-                var service = new GoogleMapsApiService(httpClient);
+                var options = new HttpMessageOptions
+                {
+                    RequestUri = new Uri("https://maps.googleapis.com/maps/api/geocode/json?address=4 Albert Pl%2C RICHMOND VIC 3121%2C AUSTRALIA&sensor=false&key=some api key&components=postal_code:3121"),
+                    HttpResponseMessage = response
+                };
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(options));
+                var service = new GoogleMapsApiService("some api key", httpClient);
 
                 // Act.
                 var result = await service.GeocodeAsync(query, componentFilters);
@@ -40,10 +47,13 @@ namespace Spatial.Tests.ApiServices
                 // Assert.
                 result.ErrorMessage.ShouldBeNullOrEmpty();
                 result.Results.Count.ShouldBe(3);
+                
                 var data = result.Results.First();
                 data.FormattedAddress.ShouldBe("4 Albert Street, Richmond VIC 3121, Australia");
                 data.Geometry.Location.Lat.ShouldBe(-37.828601);
                 data.Geometry.Location.Lng.ShouldBe(144.997996);
+                
+                options.NumberOfTimesCalled.ShouldBe(1);
             }
 
             [Fact]
@@ -52,8 +62,13 @@ namespace Spatial.Tests.ApiServices
                 // Arrange.
                 var json = File.ReadAllText("Sample Data\\Google\\Zero Results.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                var httpClient = new HttpClient(new FakeHttpMessageHandler(response));
-                var service = new GoogleMapsApiService(httpClient);
+                var options = new HttpMessageOptions
+                {
+                    RequestUri = new Uri("https://maps.googleapis.com/maps/api/geocode/json?address=sdfhgjshf ashdf ashdfj asd gfajskdg&sensor=false&key=some api key"),
+                    HttpResponseMessage = response
+                };
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(options));
+                var service = new GoogleMapsApiService("some api key", httpClient);
 
                 // Act.
                 var result = await service.GeocodeAsync("sdfhgjshf ashdf ashdfj asd gfajskdg");
@@ -61,6 +76,8 @@ namespace Spatial.Tests.ApiServices
                 // Assert.
                 result.Results.Count.ShouldBe(0);
                 result.Status.ShouldBe("ZERO_RESULTS");
+
+                options.NumberOfTimesCalled.ShouldBe(1);
             }
 
             [Fact]
@@ -69,8 +86,13 @@ namespace Spatial.Tests.ApiServices
                 // Arrange.
                 var json = File.ReadAllText("Sample Data\\Google\\Error Result.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                var httpClient = new HttpClient(new FakeHttpMessageHandler(response)); 
-                var service = new GoogleMapsApiService(httpClient);
+                var options = new HttpMessageOptions
+                {
+                    RequestUri = new Uri("https://maps.googleapis.com/maps/api/geocode/json?address=whatever&sensor=false&key=some api key"),
+                    HttpResponseMessage = response
+                };
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(options));
+                var service = new GoogleMapsApiService("some api key", httpClient);
 
                 // Act.
                 var result = await service.GeocodeAsync("whatever");
@@ -80,6 +102,8 @@ namespace Spatial.Tests.ApiServices
                 result.Status.ShouldBe("REQUEST_DENIED");
                 result.ErrorMessage.ShouldBe(
                     "The 'sensor' parameter specified in the request must be set to either 'true' or 'false'.");
+
+                options.NumberOfTimesCalled.ShouldBe(1);
             }
 
             /// <summary>
@@ -103,8 +127,13 @@ namespace Spatial.Tests.ApiServices
                 };
                 var json = File.ReadAllText("Sample Data\\Google\\Result - 15 Spinnaker Rise Sanctuary Lakes Victoria.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
-                var httpClient = new HttpClient(new FakeHttpMessageHandler(response));
-                var service = new GoogleMapsApiService(httpClient);
+                var options = new HttpMessageOptions
+                {
+                    RequestUri = new Uri("https://maps.googleapis.com/maps/api/geocode/json?address=15 Spinnaker Rise%2C VIC%2C AUSTRALIA&sensor=false&key=some api key&components=postal_code:3030"),
+                    HttpResponseMessage = response
+                };
+                var httpClient = new HttpClient(new FakeHttpMessageHandler(options));
+                var service = new GoogleMapsApiService("some api key", httpClient);
 
                 // Act.
                 var result = await service.GeocodeAsync(query, componentFilters);
@@ -112,12 +141,15 @@ namespace Spatial.Tests.ApiServices
                 // Assert.
                 result.ErrorMessage.ShouldBeNullOrEmpty();
                 result.Results.Count.ShouldBe(1);
+
                 var data = result.Results.First();
                 // NOTE: Yes! The query is for a location in Sanctuary Point (even though that exact suburb name isn't provided)
                 //       and the result is for Point Cook.
                 data.FormattedAddress.ShouldBe("15 Spinnaker Rise, Point Cook VIC 3030, Australia");
                 data.Geometry.Location.Lat.ShouldBe(-37.899923);
                 data.Geometry.Location.Lng.ShouldBe(144.775248);
+
+                options.NumberOfTimesCalled.ShouldBe(1);
             }
         }
     }
