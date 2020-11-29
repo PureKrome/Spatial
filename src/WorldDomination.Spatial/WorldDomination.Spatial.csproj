@@ -1,12 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
-    <PackageId>Homely.Common.Core</PackageId>
-    <Authors>Homely developers</Authors>
-    <Company>Homely</Company>
-    <Product>Homely - Common &gt; Core library</Product>
+    <PackageId>WorldDomination.Spatial</PackageId>
+    <Authors>Pure Krome</Authors>
+    <Company>World Domination Technologies</Company>
+    <Product>WorldDomination Spatial helpers</Product>
     <Description>A simple library that makes it easy for you to consume some 3rd party Spatial Api services.
       - Google: Maps JavaScript API - Geocode
       - Google: Places API - Find
