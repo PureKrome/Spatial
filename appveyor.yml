@@ -63,7 +63,7 @@ after_test:
       
       if ($env:CONFIGURATION -eq 'Release')
       {
-          dotnet pack -c $env:CONFIGURATION --no-build /p:Version=$env:APPVEYOR_BUILD_VERSION /p:ContinuousIntegrationBuild=true src/WorldDomination.SimpleRavenDb/WorldDomination.SimpleRavenDb.csproj
+          dotnet pack -c $env:CONFIGURATION --no-build /p:Version=$env:APPVEYOR_BUILD_VERSION /p:ContinuousIntegrationBuild=true
       }
 
 artifacts:
