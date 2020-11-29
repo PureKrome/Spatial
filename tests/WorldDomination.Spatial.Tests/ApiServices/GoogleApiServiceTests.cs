@@ -31,7 +31,7 @@ namespace WorldDomination.Spatial.Tests.ApiServices
                 {
                     PostalCode = postcode
                 };
-                var json = File.ReadAllText("Sample Data\\Google\\Results.json");
+                var json = File.ReadAllText("Sample Data/Google/Results.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
                 var options = new HttpMessageOptions
                 {
@@ -60,7 +60,7 @@ namespace WorldDomination.Spatial.Tests.ApiServices
             public async Task GivenAnInValidQuery_Geocode_ReturnsANull()
             {
                 // Arrange.
-                var json = File.ReadAllText("Sample Data\\Google\\Zero Results.json");
+                var json = File.ReadAllText("Sample Data/Google/Zero Results.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
                 var options = new HttpMessageOptions
                 {
@@ -84,7 +84,7 @@ namespace WorldDomination.Spatial.Tests.ApiServices
             public async Task GivenAGeocodingErrorOccured_Geocode_ReturnsAResultWithTheErrorMessage()
             {
                 // Arrange.
-                var json = File.ReadAllText("Sample Data\\Google\\Error Result.json");
+                var json = File.ReadAllText("Sample Data/Google/Error Result.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
                 var options = new HttpMessageOptions
                 {
@@ -125,7 +125,7 @@ namespace WorldDomination.Spatial.Tests.ApiServices
                 {
                     PostalCode = postcode
                 };
-                var json = File.ReadAllText("Sample Data\\Google\\Result - 15 Spinnaker Rise Sanctuary Lakes Victoria.json");
+                var json = File.ReadAllText("Sample Data/Google/Result - 15 Spinnaker Rise Sanctuary Lakes Victoria.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
                 var options = new HttpMessageOptions
                 {

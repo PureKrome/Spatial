@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -18,7 +18,7 @@ namespace WorldDomination.Spatial.Tests.ApiServices
             public async Task GivenAValidQuery_Geocode_ReturnsSomeData()
             {
                 // Arrange.
-                var json = File.ReadAllText("Sample Data\\Nominatim\\Result.json");
+                var json = File.ReadAllText("Sample Data/Nominatim/Result.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
                 var options = new HttpMessageOptions
                 {
@@ -42,7 +42,7 @@ namespace WorldDomination.Spatial.Tests.ApiServices
             public async Task GivenAnInValidQuery_Geocode_ReturnsNoResults()
             {
                 // Arrange.
-                var json = File.ReadAllText("Sample Data\\Nominatim\\No Result.json");
+                var json = File.ReadAllText("Sample Data/Nominatim/No Result.json");
                 var response = FakeHttpMessageHandler.GetStringHttpResponseMessage(json);
                 var options = new HttpMessageOptions
                 {
